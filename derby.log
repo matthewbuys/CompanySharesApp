@@ -1,0 +1,16 @@
+Thu Jun 25 13:16:45 CAT 2015 : Apache Derby Network Server - 10.8.3.0 - (1405108) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Thu Jun 25 13:16:45 CAT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-014e-2a6f-2942-ffffef87dc13 
+on database directory H:\PAT\CompanySharesApp\CompanySharesDB  with class loader sun.misc.Launcher$AppClassLoader@8955b34 
+Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_40/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_40-b43
+user.dir=C:\Program Files\Java\jdk1.7.0_40\db
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=H:\PAT\CompanySharesApp
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Jun 25 14:40:54 CAT 2015: Shutting down Derby engine

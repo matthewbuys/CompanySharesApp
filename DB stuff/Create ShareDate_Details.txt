@@ -1,0 +1,7 @@
+CREATE TABLE "ShareDate_Details"
+ (
+	"ShareDate_ID"              INTEGER not null, 
+	"ShareDate_Value"           DOUBLE,
+        "ShareDate_Date"            DATE,
+        PRIMARY KEY("ShareDate_ID")
+);

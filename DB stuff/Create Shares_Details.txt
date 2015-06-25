@@ -1,0 +1,9 @@
+CREATE TABLE "Shares_Details"
+ (
+	"Share_ID"              INTEGER not null, 
+	"Shareholder_ID"        INTEGER not null,
+        "Share_Total"           INT,
+        "Share_Sell"            BOOLEAN,
+        "Share_Date"            DATE,
+        PRIMARY KEY("Share_ID")
+)

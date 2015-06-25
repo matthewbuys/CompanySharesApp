@@ -1,0 +1,10 @@
+CREATE TABLE "Shareholder_Details"
+ (
+	"Shareholder_ID"              INTEGER not null, 
+	"Address_ID"		      INTEGER not null,
+	"Shareholder_Name"            VARCHAR(25),
+        "Shareholder_Number"          VARCHAR(25),
+        "Shareholder_DOB"             TIMESTAMP,
+        "Shareholder_TotalShares"     INTEGER,
+        PRIMARY KEY("Shareholder_ID")
+);

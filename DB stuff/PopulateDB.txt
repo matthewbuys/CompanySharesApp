@@ -1,0 +1,3 @@
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (null,'TABLENAME',
+'<place the full path and name of the POI csv file here>',
+',','"',null,0);

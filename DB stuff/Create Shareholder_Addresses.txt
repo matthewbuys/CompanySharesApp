@@ -1,0 +1,10 @@
+CREATE TABLE "Shareholder_Addresses"
+ (
+	"Address_ID"                INTEGER not null,  
+        "Street"                    VARCHAR(50),
+        "Neighbourhood"             VARCHAR(50),
+        "City"                      VARCHAR(50),
+        "Province"                  VARCHAR(50),
+        "Country"                   VARCHAR(50),
+        PRIMARY KEY("Address_ID")
+);
