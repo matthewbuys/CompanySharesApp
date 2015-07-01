@@ -1,16 +1,13 @@
-Thu Jun 25 13:16:45 CAT 2015 : Apache Derby Network Server - 10.8.3.0 - (1405108) started and ready to accept connections on port 1527
+Wed Jul 01 20:53:27 CAT 2015 : Apache Derby Network Server - 10.9.1.0 - (1344872) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Thu Jun 25 13:16:45 CAT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): instance a816c00e-014e-2a6f-2942-ffffef87dc13 
-on database directory H:\PAT\CompanySharesApp\CompanySharesDB  with class loader sun.misc.Launcher$AppClassLoader@8955b34 
-Loaded from file:/C:/Program%20Files/Java/jdk1.7.0_40/db/lib/derby.jar
+Wed Jul 01 20:53:28 CAT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-014e-4af7-70b1-ffffe4527fd6 
+on database directory C:\Users\matth_000\Documents\Skoolwerk\IT HW\PAT\CompanySharesApp\CompanySharesDB  with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/glassfish-4.0/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_40-b43
-user.dir=C:\Program Files\Java\jdk1.7.0_40\db
-os.name=Windows 7
-os.arch=amd64
-os.version=6.1
-derby.system.home=H:\PAT\CompanySharesApp
+java.runtime.version=1.8.0_05-b13
+user.dir=C:\Program Files\glassfish-4.0\javadb
+derby.system.home=C:\Users\matth_000\Documents\Skoolwerk\IT HW\PAT\CompanySharesApp
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Thu Jun 25 14:40:54 CAT 2015: Shutting down Derby engine
+Wed Jul 01 22:28:14 CAT 2015: Shutting down Derby engine
