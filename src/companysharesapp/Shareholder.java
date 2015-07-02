@@ -11,7 +11,7 @@ public class Shareholder
 {
     private Connection conn;
     private Statement stmt;
-    private void Connection()//method for the connection to DB
+    private void Connection()//method for the connection to DB without having to have a try-catch at every setter/getter
     {
         try 
         {
@@ -22,7 +22,7 @@ public class Shareholder
             System.out.println("Could not estalish a Connection via Shareholder-Connection method");
         }
     }
-    private void ExecuteSQL(String sql)
+    private void ExecuteSQL(String sql)//to create the stmt without having to have a try-catch at every setter
     {
         try {
             stmt.execute(sql);
@@ -91,7 +91,7 @@ public class Shareholder
         this.address = address;
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Address_ID\" = "+address+"\n" +
-                    "WHERE \"Shareholder_ID\" = '"+id+"'";
+                    "WHERE \"Shareholder_ID\" = "+id;
         ExecuteSQL(sql);
     }
 
@@ -101,9 +101,9 @@ public class Shareholder
 
     public void setName(String name) {
         this.name = name;
-        String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
-                    "SET \"Shareholder_Name\" = "+name+"\n" +
-                    "WHERE \"Shareholder_ID\" = '"+id+"'";
+        String sql = "UPDATE \"Shareholder_Details\"\n" +
+                    "SET \"Shareholder_Name\" = '"+name+"'\n" +
+                    "WHERE \"Shareholder_ID\" = "+id;
         ExecuteSQL(sql);
     }
 
@@ -114,8 +114,8 @@ public class Shareholder
     public void setNumber(String number) {
         this.number = number;
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
-                    "SET \"Shareholder_Number\" = "+number+"\n" +
-                    "WHERE \"Shareholder_ID\" = '"+id+"'";
+                    "SET \"Shareholder_Number\" = '"+number+"'\n" +
+                    "WHERE \"Shareholder_ID\" = "+id;
         ExecuteSQL(sql);
     }
 
@@ -126,8 +126,8 @@ public class Shareholder
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
-                    "SET \"Shareholder_DOB\" = "+dateOfBirth+"\n" +
-                    "WHERE \"Shareholder_ID\" = '"+id+"'";
+                    "SET \"Shareholder_DOB\" = '"+dateOfBirth+"'\n" +
+                    "WHERE \"Shareholder_ID\" = "+id;
         ExecuteSQL(sql);
     }
 
@@ -139,7 +139,7 @@ public class Shareholder
         this.totalShares = totalShares;
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Shareholder_TotalShares\" = "+totalShares+"\n" +
-                    "WHERE \"Shareholder_ID\" = '"+id+"'";
+                    "WHERE \"Shareholder_ID\" = "+id;
         ExecuteSQL(sql);
     }
     
