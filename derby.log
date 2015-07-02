@@ -9,3 +9,5 @@ java.runtime.version=1.8.0_05-b13
 user.dir=C:\Program Files\glassfish-4.0\javadb
 derby.system.home=C:\Users\matth_000\Documents\Skoolwerk\IT HW\PAT\CompanySharesApp
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Jul 02 14:49:13 CAT 2015: Shutting down Derby engine
