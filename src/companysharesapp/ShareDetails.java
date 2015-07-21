@@ -56,6 +56,23 @@ public class ShareDetails
             System.out.println("Error with ID-ShareDetails method");
         }
     }
+    public void addRecord()
+    {
+        
+    }
+    public int getLastID()
+    {
+        try {
+            Connection();
+            String sql = "select MAX(\"Share_ID\") from NBUSER.\"Shares_Details\"";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            System.out.println("Error with getLastID");
+        }
+        return 0;
+    }
 
     public int getId() {
         return id;

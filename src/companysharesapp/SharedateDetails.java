@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,6 +40,8 @@ public class SharedateDetails
         }
     }
     int id; double shareValue;String date;
+    
+    public SharedateDetails(){};
     public SharedateDetails(int id)
     {
         try {
@@ -51,6 +55,34 @@ public class SharedateDetails
         } catch (SQLException ex) {
             System.out.println("Error with ID-ShareDate_Details method");
         }
+    }
+    
+    public String getLastDate()
+    {
+        try {
+            Connection();
+            String sql = "select MAX(\"ShareDate_Date\") from NBUSER.\"ShareDate_Details\"";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return ""+rs.getDate(1);
+        } catch (SQLException ex) {
+            System.out.println("Error with getLastDate method(SharedateDetails class)");;
+        }
+        return "";
+    }
+    
+    public int getLastID()
+    {
+        try {
+            Connection();
+            String sql = "select MAX(\"ShareDate_ID\") from NBUSER.\"ShareDate_Details\"";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            System.out.println("Error with getLastID");
+        }
+        return 0;
     }
 
     public int getId() {

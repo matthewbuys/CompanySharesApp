@@ -57,6 +57,20 @@ public class Addresses
         }
     }
 
+    public int getLastID()
+    {
+        try {
+            Connection();
+            String sql = "select MAX(\"Address_ID\") from NBUSER.\"Shareholder_Addresses\"";
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            System.out.println("Error with getLastID");
+        }
+        return 0;
+    }
+    
     public int getId() {
         return id;
     }
