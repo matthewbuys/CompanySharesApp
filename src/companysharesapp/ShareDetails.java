@@ -31,7 +31,7 @@ public class ShareDetails
             System.out.println("Could not estalish a Connection via Addresses-Connection method");
         }
     }
-    private void ExecuteSQL(String sql)//to create the stmt without having to have a try-catch at every setter
+    private void executeSQL(String sql)//to create the stmt without having to have a try-catch at every setter
     {
         try {
             stmt.execute(sql);
@@ -40,6 +40,7 @@ public class ShareDetails
         }
     }
     int id; int shareholderID;int sharetotal;boolean shareSell;String date;
+    public ShareDetails(){}
     public ShareDetails(int id)
     {
         try {
@@ -56,9 +57,12 @@ public class ShareDetails
             System.out.println("Error with ID-ShareDetails method");
         }
     }
-    public void addRecord()
+    public void addRecord(int id,int shareholderID,int totalShares,boolean sell,String date)
     {
-        
+     Connection();
+     String sql = "INSERT INTO \"Shares_Details\"(\"Share_ID\",\"Shareholder_ID\",\"Share_Total\",\"Share_Sell\",\"Share_Date\")\n" +
+                    "VALUES("+id+","+shareholderID+","+totalShares+","+sell+",'"+date+"')";
+     executeSQL(sql);
     }
     public int getLastID()
     {
@@ -88,7 +92,7 @@ public class ShareDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"Shareholder_ID\" = '"+shareholderID+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public int getSharetotal() {
@@ -101,7 +105,7 @@ public class ShareDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"Share_Total\" = '"+sharetotal+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public boolean isShareSell() {
@@ -114,7 +118,7 @@ public class ShareDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"Share_Sell\" = '"+shareSell+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getDate() {
@@ -127,7 +131,7 @@ public class ShareDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"Share_Date\" = '"+date+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
     
 }

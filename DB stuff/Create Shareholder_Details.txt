@@ -6,5 +6,6 @@ CREATE TABLE "Shareholder_Details"
         "Shareholder_Number"          VARCHAR(25),
         "Shareholder_DOB"             TIMESTAMP,
         "Shareholder_TotalShares"     INTEGER,
+	"ProfilePicPath"	      VARCHAR(50),
         PRIMARY KEY("Shareholder_ID")
 );

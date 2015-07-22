@@ -31,7 +31,7 @@ public class SharedateDetails
             System.out.println("Could not estalish a Connection via Addresses-Connection method");
         }
     }
-    private void ExecuteSQL(String sql)//to create the stmt without having to have a try-catch at every setter
+    private void executeSQL(String sql)//to create the stmt without having to have a try-catch at every setter
     {
         try {
             stmt.execute(sql);
@@ -41,7 +41,7 @@ public class SharedateDetails
     }
     int id; double shareValue;String date;
     
-    public SharedateDetails(){};
+    public SharedateDetails(){}
     public SharedateDetails(int id)
     {
         try {
@@ -55,6 +55,14 @@ public class SharedateDetails
         } catch (SQLException ex) {
             System.out.println("Error with ID-ShareDate_Details method");
         }
+    }
+    
+    public void addRecord(int id,double value,String date)
+    {
+     Connection();
+     String sql = "INSERT INTO \"ShareDate_Details\"(\"ShareDate_ID\",\"ShareDate_Value\",\"ShareDate_Date\")\n" +
+                    "VALUES("+id+","+value+",'"+date+"')";
+     executeSQL(sql);
     }
     
     public String getLastDate()
@@ -99,7 +107,7 @@ public class SharedateDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"ShareDate_Value\" = '"+shareValue+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getDate() {
@@ -112,7 +120,7 @@ public class SharedateDetails
         String sql = "UPDATE \"Shares_Details\"\n" + //sql querry
                     "SET \"ShareDate_Date\" = '"+date+"'\n" +
                     "WHERE \"Share_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
     
 }

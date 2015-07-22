@@ -29,7 +29,7 @@ public class Addresses
             System.out.println("Could not estalish a Connection via Addresses-Connection method");
         }
     }
-    private void ExecuteSQL(String sql)//to create the stmt without having to have a try-catch at every setter
+    private void executeSQL(String sql)//to create the stmt without having to have a try-catch at every setter
     {
         try {
             stmt.execute(sql);
@@ -38,6 +38,7 @@ public class Addresses
         }
     }
     int id;String street;String neigbourhood;String city;String province;String country;
+    public Addresses(){}
     public Addresses(int id)
     {
         try {
@@ -57,6 +58,14 @@ public class Addresses
         }
     }
 
+    public void addRecord(int id,String street,String neighbourhood,String city,String province,String country)
+    {
+     Connection();
+     String sql = "INSERT INTO \"Shareholder_Addresses\"(\"Address_ID\",\"Street\",\"Neighbourhood\",\"City\",\"Province\",\"Country\")\n" +
+"                   VALUES("+id+",'"+street+"','"+neighbourhood+"','"+city+"','"+province+"','"+country+"')";
+     executeSQL(sql);
+    }
+    
     public int getLastID()
     {
         try {
@@ -85,7 +94,7 @@ public class Addresses
         String sql = "UPDATE \"Shareholder_Addresses\"\n" + //sql querry
                     "SET \"Street\" = '"+street+"'\n" +
                     "WHERE \"Address_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getNeigbourhood() {
@@ -98,7 +107,7 @@ public class Addresses
         String sql = "UPDATE \"Shareholder_Addresses\"\n" + //sql querry
                     "SET \"Neighbourhood\" = '"+neigbourhood+"'\n" +
                     "WHERE \"Address_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getCity() {
@@ -111,7 +120,7 @@ public class Addresses
         String sql = "UPDATE \"Shareholder_Addresses\"\n" + //sql querry
                     "SET \"City\" = '"+city+"'\n" +
                     "WHERE \"Address_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getProvince() {
@@ -124,7 +133,7 @@ public class Addresses
         String sql = "UPDATE \"Shareholder_Addresses\"\n" + //sql querry
                     "SET \"Province\" = '"+province+"'\n" +
                     "WHERE \"Address_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getCountry() {
@@ -137,6 +146,6 @@ public class Addresses
         String sql = "UPDATE \"Shareholder_Addresses\"\n" + //sql querry
                     "SET \"Country\" = '"+country+"'\n" +
                     "WHERE \"Address_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 }

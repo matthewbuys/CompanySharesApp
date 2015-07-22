@@ -22,7 +22,7 @@ public class Shareholder
             System.out.println("Could not estalish a Connection via Shareholder-Connection method");
         }
     }
-    private void ExecuteSQL(String sql)//to create the stmt without having to have a try-catch at every setter
+    private void executeSQL(String sql)//to create the stmt without having to have a try-catch at every setter
     {
         try {
             stmt.execute(sql);
@@ -30,7 +30,8 @@ public class Shareholder
             System.out.println("Error executing SQL via ExecuteSQL method");
         }
     }
-    int id;int address;String name;String number;String dateOfBirth;int totalShares;
+    public Shareholder(){}
+    int id;int address;String name;String number;String dateOfBirth;int totalShares;String path;
     public Shareholder(int id)//for when the ID is known
     {
         try {
@@ -44,6 +45,7 @@ public class Shareholder
             number = rs.getString(4);
             dateOfBirth = ""+rs.getDate(5);
             totalShares = rs.getInt(6);
+            path = rs.getString(7);
         } catch (SQLException ex) 
         {
             System.out.println("Could not establish an ID-Shareholder connection");//to know where the error is.
@@ -66,6 +68,21 @@ public class Shareholder
         {
             System.out.println("Could not establish a Name-Shareholder connection");//to know where the error is.
         }
+    }
+    
+    public void addRecord(int id,int addID,String name,String number,String dob,int total)
+    {
+     Connection();
+     String sql = "INSERT INTO \"Shareholder_Details\"(\"Shareholder_ID\",\"Address_ID\",\"Shareholder_Name\",\"Shareholder_Number\",\"Shareholder_DOB\",\"Shareholder_TotalShares\")\n" +
+                    "VALUES("+id+","+addID+",'"+name+"','"+number+"','"+dob+"',"+total+")";
+     executeSQL(sql);
+    }
+    public void addRecordAndImage(int id,int addID,String name,String number,String dob,int total,String path)
+    {
+     Connection();
+     String sql = "INSERT INTO \"Shareholder_Details\"(\"Shareholder_ID\",\"Address_ID\",\"Shareholder_Name\",\"Shareholder_Number\",\"Shareholder_DOB\",\"Shareholder_TotalShares\",\"ProfilePicPath\")\n" +
+                    "VALUES("+id+","+addID+",'"+name+"',"+number+"','"+dob+"',"+total+",'"+path+"')";
+     executeSQL(sql);
     }
     
     public int getLastID()
@@ -94,7 +111,7 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Shareholder_ID\" = "+id+"\n" +
                     "WHERE \"Shareholder_Name\" = '"+name+"'";
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public int getAddressID() {
@@ -106,7 +123,7 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Address_ID\" = "+address+"\n" +
                     "WHERE \"Shareholder_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getName() {
@@ -118,7 +135,7 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" +
                     "SET \"Shareholder_Name\" = '"+name+"'\n" +
                     "WHERE \"Shareholder_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getNumber() {
@@ -130,7 +147,7 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Shareholder_Number\" = '"+number+"'\n" +
                     "WHERE \"Shareholder_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public String getDateOfBirth() {
@@ -142,7 +159,7 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Shareholder_DOB\" = '"+dateOfBirth+"'\n" +
                     "WHERE \"Shareholder_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
 
     public int getTotalShares() {
@@ -154,7 +171,20 @@ public class Shareholder
         String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
                     "SET \"Shareholder_TotalShares\" = "+totalShares+"\n" +
                     "WHERE \"Shareholder_ID\" = "+id;
-        ExecuteSQL(sql);
+        executeSQL(sql);
     }
     
+    public String getPath()
+    {
+        return path;
+    }
+    
+    public void setPath(String path)
+    {
+        Connection();
+        String sql = "UPDATE \"Shareholder_Details\"\n" + //sql querry
+                    "SET \"ProfilePicPath\" = "+path+"\n" +
+                    "WHERE \"Shareholder_ID\" = "+id;
+        executeSQL(sql);
+    }
 }
